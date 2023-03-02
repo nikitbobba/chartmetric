@@ -1,0 +1,3 @@
+SELECT users.id as user_id, users.username, users.email, artists.id AS artist_id, artists.tagline, COALESCE(tracks.name, '') AS track_name, COALESCE(tracks.isrc, '') AS track_isrc FROM artists INNER JOIN users ON users.id=artists.user_id LEFT JOIN tracks ON artists.id=tracks.artist_id;
+
+# Remove COALESCE if we don't want the values as blank
